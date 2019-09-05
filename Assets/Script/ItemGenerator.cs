@@ -20,7 +20,10 @@ public class ItemGenerator : MonoBehaviour {
 
     private int itemRange = 50;
 
+    private GameObject car;
 
+    private GameObject coin;
+    private GameObject cone;
     int i;
     // Use this for initialization
 	void Start () {
@@ -39,7 +42,7 @@ public class ItemGenerator : MonoBehaviour {
             {
                 for (float j = -1; j <= 1; j += 0.4f)
                 {
-                    GameObject cone = Instantiate(conePrefab) as GameObject;
+                    cone = Instantiate(conePrefab) as GameObject;
 
                     cone.transform.position = new Vector3(4 * j, cone.transform.position.y, i);
                 }
@@ -55,7 +58,7 @@ public class ItemGenerator : MonoBehaviour {
 
                     if (1 <= item && i <= 6)
                     {
-                        GameObject coin = Instantiate(coinPrefab) as GameObject;
+                         coin = Instantiate(coinPrefab) as GameObject;
 
                         coin.transform.position = new Vector3(posRange * j, coin.transform.position.y, i + offsetZ);
 
@@ -63,7 +66,7 @@ public class ItemGenerator : MonoBehaviour {
                     else if (7 <= item && item <= 9)
                     {
                         //車を生成
-                        GameObject car = Instantiate(carPrefab) as GameObject;
+                        car = Instantiate(carPrefab) as GameObject;
                         car.transform.position = new Vector3(posRange * j, car.transform.position.y, i + offsetZ);
                     }
                 }
@@ -71,4 +74,6 @@ public class ItemGenerator : MonoBehaviour {
             i += 15;
         }
 	}
+
+    
 }
